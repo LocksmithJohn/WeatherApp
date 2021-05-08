@@ -21,6 +21,26 @@
 		BF5096312646B5FF006C895D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50962F2646B5FF006C895D /* NetworkService.swift */; };
 		BF5096332646B619006C895D /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096322646B619006C895D /* WeatherNetworkService.swift */; };
 		BF5096342646B619006C895D /* WeatherNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096322646B619006C895D /* WeatherNetworkService.swift */; };
+		BF5096382646B6BB006C895D /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096372646B6BB006C895D /* CoordinatorView.swift */; };
+		BF5096392646B6BB006C895D /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096372646B6BB006C895D /* CoordinatorView.swift */; };
+		BF50963B2646B6CA006C895D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50963A2646B6CA006C895D /* Coordinator.swift */; };
+		BF50963C2646B6CA006C895D /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50963A2646B6CA006C895D /* Coordinator.swift */; };
+		BF50963E2646B701006C895D /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50963D2646B701006C895D /* DailyForecastView.swift */; };
+		BF50963F2646B701006C895D /* DailyForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50963D2646B701006C895D /* DailyForecastView.swift */; };
+		BF5096412646B70D006C895D /* DailyForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096402646B70D006C895D /* DailyForecastViewModel.swift */; };
+		BF5096422646B70D006C895D /* DailyForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096402646B70D006C895D /* DailyForecastViewModel.swift */; };
+		BF5096442646B71C006C895D /* DailyForecastDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096432646B71C006C895D /* DailyForecastDTO.swift */; };
+		BF5096452646B71C006C895D /* DailyForecastDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096432646B71C006C895D /* DailyForecastDTO.swift */; };
+		BF5096472646B779006C895D /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096462646B779006C895D /* CurrentWeatherView.swift */; };
+		BF5096482646B779006C895D /* CurrentWeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096462646B779006C895D /* CurrentWeatherView.swift */; };
+		BF50964A2646B787006C895D /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096492646B787006C895D /* CurrentWeatherViewModel.swift */; };
+		BF50964B2646B787006C895D /* CurrentWeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096492646B787006C895D /* CurrentWeatherViewModel.swift */; };
+		BF50964D2646B795006C895D /* CurrentWeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50964C2646B795006C895D /* CurrentWeatherDTO.swift */; };
+		BF50964E2646B795006C895D /* CurrentWeatherDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50964C2646B795006C895D /* CurrentWeatherDTO.swift */; };
+		BF5096502646B7DC006C895D /* SettingsParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50964F2646B7DC006C895D /* SettingsParams.swift */; };
+		BF5096512646B7DC006C895D /* SettingsParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF50964F2646B7DC006C895D /* SettingsParams.swift */; };
+		BF5096532646B7F7006C895D /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096522646B7F7006C895D /* GlobalConstants.swift */; };
+		BF5096542646B7F7006C895D /* GlobalConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5096522646B7F7006C895D /* GlobalConstants.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +56,16 @@
 		BF50962B2646B5C5006C895D /* DailyForecastModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastModel.swift; sourceTree = "<group>"; };
 		BF50962F2646B5FF006C895D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BF5096322646B619006C895D /* WeatherNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherNetworkService.swift; sourceTree = "<group>"; };
+		BF5096372646B6BB006C895D /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
+		BF50963A2646B6CA006C895D /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		BF50963D2646B701006C895D /* DailyForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastView.swift; sourceTree = "<group>"; };
+		BF5096402646B70D006C895D /* DailyForecastViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastViewModel.swift; sourceTree = "<group>"; };
+		BF5096432646B71C006C895D /* DailyForecastDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastDTO.swift; sourceTree = "<group>"; };
+		BF5096462646B779006C895D /* CurrentWeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherView.swift; sourceTree = "<group>"; };
+		BF5096492646B787006C895D /* CurrentWeatherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherViewModel.swift; sourceTree = "<group>"; };
+		BF50964C2646B795006C895D /* CurrentWeatherDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentWeatherDTO.swift; sourceTree = "<group>"; };
+		BF50964F2646B7DC006C895D /* SettingsParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsParams.swift; sourceTree = "<group>"; };
+		BF5096522646B7F7006C895D /* GlobalConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalConstants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +89,16 @@
 		BF5096012646B3A7006C895D = {
 			isa = PBXGroup;
 			children = (
+				BF50964F2646B7DC006C895D /* SettingsParams.swift */,
+				BF5096522646B7F7006C895D /* GlobalConstants.swift */,
+				BF5096372646B6BB006C895D /* CoordinatorView.swift */,
+				BF50963A2646B6CA006C895D /* Coordinator.swift */,
+				BF50963D2646B701006C895D /* DailyForecastView.swift */,
+				BF5096462646B779006C895D /* CurrentWeatherView.swift */,
+				BF5096492646B787006C895D /* CurrentWeatherViewModel.swift */,
+				BF50964C2646B795006C895D /* CurrentWeatherDTO.swift */,
+				BF5096402646B70D006C895D /* DailyForecastViewModel.swift */,
+				BF5096432646B71C006C895D /* DailyForecastDTO.swift */,
 				BF5096062646B3A7006C895D /* Shared */,
 				BF5096102646B3A8006C895D /* iOS */,
 				BF5096172646B3A8006C895D /* macOS */,
@@ -227,11 +267,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF50963E2646B701006C895D /* DailyForecastView.swift in Sources */,
+				BF50963B2646B6CA006C895D /* Coordinator.swift in Sources */,
 				BF5096302646B5FF006C895D /* NetworkService.swift in Sources */,
+				BF50964A2646B787006C895D /* CurrentWeatherViewModel.swift in Sources */,
+				BF5096412646B70D006C895D /* DailyForecastViewModel.swift in Sources */,
+				BF5096382646B6BB006C895D /* CoordinatorView.swift in Sources */,
+				BF5096442646B71C006C895D /* DailyForecastDTO.swift in Sources */,
 				BF50961C2646B3A8006C895D /* ContentView.swift in Sources */,
+				BF50964D2646B795006C895D /* CurrentWeatherDTO.swift in Sources */,
 				BF50961A2646B3A8006C895D /* iOSWeatherAppApp.swift in Sources */,
+				BF5096502646B7DC006C895D /* SettingsParams.swift in Sources */,
 				BF5096332646B619006C895D /* WeatherNetworkService.swift in Sources */,
+				BF5096472646B779006C895D /* CurrentWeatherView.swift in Sources */,
 				BF50962C2646B5C5006C895D /* DailyForecastModel.swift in Sources */,
+				BF5096532646B7F7006C895D /* GlobalConstants.swift in Sources */,
 				BF5096292646B5AD006C895D /* CurrentWeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -240,11 +290,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF50963F2646B701006C895D /* DailyForecastView.swift in Sources */,
+				BF50963C2646B6CA006C895D /* Coordinator.swift in Sources */,
 				BF5096312646B5FF006C895D /* NetworkService.swift in Sources */,
+				BF50964B2646B787006C895D /* CurrentWeatherViewModel.swift in Sources */,
+				BF5096422646B70D006C895D /* DailyForecastViewModel.swift in Sources */,
+				BF5096392646B6BB006C895D /* CoordinatorView.swift in Sources */,
+				BF5096452646B71C006C895D /* DailyForecastDTO.swift in Sources */,
 				BF50961D2646B3A8006C895D /* ContentView.swift in Sources */,
+				BF50964E2646B795006C895D /* CurrentWeatherDTO.swift in Sources */,
 				BF50961B2646B3A8006C895D /* iOSWeatherAppApp.swift in Sources */,
+				BF5096512646B7DC006C895D /* SettingsParams.swift in Sources */,
 				BF5096342646B619006C895D /* WeatherNetworkService.swift in Sources */,
+				BF5096482646B779006C895D /* CurrentWeatherView.swift in Sources */,
 				BF50962D2646B5C5006C895D /* DailyForecastModel.swift in Sources */,
+				BF5096542646B7F7006C895D /* GlobalConstants.swift in Sources */,
 				BF50962A2646B5AD006C895D /* CurrentWeatherModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
