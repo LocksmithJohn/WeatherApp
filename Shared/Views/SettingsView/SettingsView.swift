@@ -25,7 +25,6 @@ struct SettingsView: View {
                 .keyboardType(.numberPad)
                 .padding()
                 .font(.title)
-            
             Button(action : { viewModel.saveChanges() }) {
                 HStack {
                     Text("Ok")

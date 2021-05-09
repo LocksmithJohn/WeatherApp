@@ -38,6 +38,10 @@ struct DailyForecastDTO {
 
 private extension DailyForecastDTO {
     
+    // Docelowo funckjonalnosc np generowania nazwy dni powinna się znalezc
+    // w jakims managerze albo helperze, na pewno nie w DTO
+    // poniższa implementacja jest dużym uproszczeniem
+    
     func dayNames(numberOf: Int) -> [String] {
         var names = [String]()
         

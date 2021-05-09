@@ -15,6 +15,8 @@ struct DailyForecastView: View {
         List {
             ForEach(viewModel.dailyForecastDTO.days) { day in
                 HStack {
+                    // oczywiscie danych mozna wyswietlic znacznie więcej
+                    // potraktowalem to raczej jako przyklad
                     Text(String(day.name))
                     Spacer()
                     Text(String(day.temperatureDay))

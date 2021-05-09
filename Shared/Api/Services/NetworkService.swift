@@ -14,6 +14,14 @@ protocol NetworkService {
     
 }
 
+// Osobiscie uwazam ze warstwa networkingowa powinna byc rozbita na dwie
+// tak jak tutaj: NetworkService to jak najbardziej generyczne zapytania
+// Natomiast oddzielnie tworzone są serwisy (np: WeatherNetworkService),
+// zbierające już dane o konkretnych typach modeli api
+
+// poniżej zaledwie minimalna obsluga błedu,
+// wraz ze wzrostem projektu warto byloby dodac customowe errory
+
 extension NetworkService {
 
     func request<T>(request: URLRequest) -> AnyPublisher<T, Error> where T : Decodable {

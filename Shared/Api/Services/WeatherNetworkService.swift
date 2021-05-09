@@ -30,6 +30,9 @@ final class WeatherNetworkService: WeatherNetworkServiceProtocol, NetworkService
     
     private var subscriptions = Set<AnyCancellable>()
     
+    // poniżej chowam Subjecty za publicznymi Publisherami,
+    // nawyk z rxSwifta, dla zabezpieczenia
+    
     private let currentWeatherSubject = PassthroughSubject<CurrentWeatherModel?, Error>()
     var currentWeatherPublisher: AnyPublisher<CurrentWeatherModel?, Error> {
         currentWeatherSubject.eraseToAnyPublisher()
@@ -51,6 +54,10 @@ final class WeatherNetworkService: WeatherNetworkServiceProtocol, NetworkService
             return
         }
         
+        // ponizej przekazuję sygnał z requesta do lokalnego subjecta
+        // hmm.. w rxSwifcie dalo sie to zrobic prosto, używając bind(to:)
+        // wiem, że to nie wygląda pro, ale zrobilem to zwyklym .send()'em
+        
         request(request: URLRequest(url: url))
             .sink { [weak self] completion in
                 switch completion {
@@ -71,8 +78,8 @@ final class WeatherNetworkService: WeatherNetworkServiceProtocol, NetworkService
         }
         
         request(request: URLRequest(url: url))
-            .sink { _ in // tutaj komentarz
-            } receiveValue: { [weak self] dataModel in
+            .sink { _ in }
+                receiveValue: { [weak self] dataModel in
                 self?.dailyForecastSubject.send(dataModel)
             }
             .store(in: &subscriptions)

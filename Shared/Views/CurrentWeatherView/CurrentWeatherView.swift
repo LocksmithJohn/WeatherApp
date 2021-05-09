@@ -11,7 +11,6 @@ import SwiftUI
 struct CurrentWeatherView: View {
     
     @ObservedObject var viewModel: CurrentWeatherViewModel
-    
     @State private var loaderVisible = false
     
     var body: some View {
