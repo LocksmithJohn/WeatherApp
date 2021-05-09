@@ -15,12 +15,19 @@ protocol NetworkService {
 }
 
 extension NetworkService {
-    
+
     func request<T>(request: URLRequest) -> AnyPublisher<T, Error> where T : Decodable {
         let decoder = JSONDecoder()
         
         return URLSession.shared.dataTaskPublisher(for: request)
-            .map { $0.data }
+            .tryMap {
+                guard let r = $0.response as? HTTPURLResponse,
+                      r.statusCode == 200 else {
+                    throw URLError(.badServerResponse)
+                }
+                
+                return $0.data
+            }
             .decode(type: T.self, decoder: decoder)
             .eraseToAnyPublisher()
     }

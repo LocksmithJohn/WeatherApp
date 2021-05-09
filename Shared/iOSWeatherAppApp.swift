@@ -9,9 +9,15 @@ import SwiftUI
 
 @main
 struct iOSWeatherAppApp: App {
+    
+    private let weatherNetworkService = WeatherNetworkService()
+    private let settingsParams = SettingsParams()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CoordinatorView(coordinator: .init(weatherNetworkService: weatherNetworkService,
+                                               settingsParams: settingsParams))
         }
     }
+    
 }

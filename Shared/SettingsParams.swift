@@ -9,8 +9,8 @@ import Foundation
 
 final class SettingsParams: ObservableObject {
     
-    @Published var cityName: String?
-    @Published var daysNumber: Int?
+    @Published var cityName: String
+    @Published var daysNumber: Int
     
     init() {
         cityName = GlobalConstants.defaultCity

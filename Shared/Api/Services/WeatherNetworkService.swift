@@ -8,7 +8,17 @@
 import Combine
 import Foundation
 
-final class WeatherNetworkService: NetworkService {
+protocol WeatherNetworkServiceProtocol {
+    
+    var currentWeatherPublisher: AnyPublisher<CurrentWeatherModel?, Error> { get }
+    var dailyForecastPublisher: AnyPublisher<DailyForecastModel, Error> { get }
+    
+    func fetchCurrentWeather(phrase: String)
+    func fetchDailyForecast(phrase: String, daysNumber: Int)
+    
+}
+
+final class WeatherNetworkService: WeatherNetworkServiceProtocol, NetworkService {
     
     private enum Constants {
         
@@ -18,22 +28,60 @@ final class WeatherNetworkService: NetworkService {
         
     }
     
-    func fetchCurrentWeather(phrase: String) -> AnyPublisher<CurrentWeatherModel, Error> {
-        guard let url = produceComponents(.current, phrase: phrase).url else {
-            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
-        }
-
-        return request(request: URLRequest(url: url))
+    private var subscriptions = Set<AnyCancellable>()
+    
+    private let currentWeatherSubject = PassthroughSubject<CurrentWeatherModel?, Error>()
+    var currentWeatherPublisher: AnyPublisher<CurrentWeatherModel?, Error> {
+        currentWeatherSubject.eraseToAnyPublisher()
     }
     
-    func fetchDailyForecast(phrase: String, daysNumber: Int) -> AnyPublisher<DailyForecastModel, Error> {
-        guard let url = produceComponents(.forecast(daysNumber), phrase: phrase).url else {
-            return Fail(error: URLError(.badURL)).eraseToAnyPublisher()
-        }
-
-        return request(request: URLRequest(url: url))
+    private let dailyForecastSubject = PassthroughSubject<DailyForecastModel, Error>()
+    var dailyForecastPublisher: AnyPublisher<DailyForecastModel, Error> {
+        dailyForecastSubject.eraseToAnyPublisher()
     }
+    
+    init() {
+        fetchDailyForecast(phrase: GlobalConstants.defaultCity,
+                           daysNumber: GlobalConstants.defaultDaysNumber)
+        fetchCurrentWeather(phrase: GlobalConstants.defaultCity)
+    }
+    
+    func fetchCurrentWeather(phrase: String) {
+        guard let url = produceComponents(.current, phrase: phrase).url else {
+            return
+        }
+        
+        request(request: URLRequest(url: url))
+            .sink { [weak self] completion in
+                switch completion {
+                case .finished:
+                    break
+                case .failure:
+                    self?.currentWeatherSubject.send(nil)
+                }
+            } receiveValue: { [weak self] dataModel in
+                self?.currentWeatherSubject.send(dataModel)
+            }
+            .store(in: &subscriptions)
+    }
+    
+    func fetchDailyForecast(phrase: String, daysNumber: Int) {
+        guard let url = produceComponents(.forecast(daysNumber), phrase: phrase).url else {
+            return
+        }
+        
+        request(request: URLRequest(url: url))
+            .sink { _ in // tutaj komentarz
+            } receiveValue: { [weak self] dataModel in
+                self?.dailyForecastSubject.send(dataModel)
+            }
+            .store(in: &subscriptions)
+    }
+    
+}
 
+private extension WeatherNetworkService {
+    
     func produceComponents(_ type: WeatherApiType, phrase: String) -> URLComponents {
         var components = URLComponents()
         components.scheme = Constants.scheme
@@ -43,7 +91,7 @@ final class WeatherNetworkService: NetworkService {
             [searchTerm(phrase: phrase)] +
             type.queryItems +
             [Constants.appid]
-
+        
         return components
     }
     
@@ -52,30 +100,3 @@ final class WeatherNetworkService: NetworkService {
     }
     
 }
-
-enum WeatherApiType {
-    
-    case current
-    case forecast(Int)
-    
-    var path: String {
-        switch self {
-        case .current:
-            return "/data/2.5/weather"
-        case .forecast:
-            return "/data/2.5/forecast/daily"
-        }
-    }
-    
-    var queryItems: [URLQueryItem] {
-        switch self {
-        case .current:
-            return []
-        case .forecast(let daysNumber):
-            return [URLQueryItem(name: "cnt", value: String(daysNumber))]
-        }
-    }
-    
-}
-
-
