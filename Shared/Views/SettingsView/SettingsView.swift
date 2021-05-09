@@ -17,14 +17,19 @@ struct SettingsView: View {
                 .padding()
                 .accentColor(.red)
             TextField("City:", text: $viewModel.cityName)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .font(.title)
                 .padding()
             TextField("DaysNumber:", text: $viewModel.daysNumber)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
                 .keyboardType(.numberPad)
                 .padding()
                 .font(.title)
-            Button("Ok") {
-                viewModel.saveChanges()
+            
+            Button(action : { viewModel.saveChanges() }) {
+                HStack {
+                    Text("Ok")
+                }.frame(width: 300, height: 50, alignment: .center)
             }
         }
     }

@@ -16,19 +16,44 @@ struct DailyForecastDTO {
             return
         }
         
-        self.days = model.list
-            .map {
-                Day(temperatureDay: $0.temp.day,
-                    temperatureNight: $0.temp.night)
-            }
+        model.list.enumerated().forEach {
+            self.days.append(
+                Day(name: dayNames(numberOf: model.list.count)[$0.offset],
+                    temperatureDay: "day: " + String($0.element.temp.day.fromKelvinToCelsius()) + "º",
+                    temperatureNight: "night: " + String($0.element.temp.night.fromKelvinToCelsius()) + "º")
+            )
+        }
     }
     
     struct Day: Identifiable {
         
         let id = UUID()
-        let temperatureDay: Double
-        let temperatureNight: Double
+        let name: String
+        let temperatureDay: String
+        let temperatureNight: String
         
     }
 
+}
+
+private extension DailyForecastDTO {
+    
+    func dayNames(numberOf: Int) -> [String] {
+        var names = [String]()
+        
+        var nextDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEEE"
+        
+        var dateComponent = DateComponents()
+        dateComponent.day = 1
+        
+        for _ in 0 ..< numberOf {
+            nextDate = Calendar.current.date(byAdding: dateComponent, to: nextDate) ?? Date()
+            names.append(dateFormatter.string(from: nextDate))
+        }
+        
+        return names
+    }
+    
 }

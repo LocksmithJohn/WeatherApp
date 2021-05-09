@@ -15,6 +15,8 @@ struct DailyForecastView: View {
         List {
             ForEach(viewModel.dailyForecastDTO.days) { day in
                 HStack {
+                    Text(String(day.name))
+                    Spacer()
                     Text(String(day.temperatureDay))
                     Text(String(day.temperatureNight))
                 }

@@ -22,8 +22,16 @@ struct CoordinatorView: View {
                     }
                 }
                 TabView {
-                    coordinator.toCurrentWeatherScreen().tabItem { Text("1") }
-                    coordinator.toDailyForecastScreen().tabItem { Text("2") }
+                    coordinator.toCurrentWeatherScreen()
+                        .tabItem {
+                            Image(systemName: "cloud.sun")
+                            Text("Weather")
+                        }
+                    coordinator.toDailyForecastScreen()
+                        .tabItem {
+                            Image(systemName: "list.dash")
+                            Text("Forecast")
+                        }
                 }
                 .sheet(isPresented: $coordinator.sheetPresented,
                        content: { coordinator.routeToSettingsScreen() })
